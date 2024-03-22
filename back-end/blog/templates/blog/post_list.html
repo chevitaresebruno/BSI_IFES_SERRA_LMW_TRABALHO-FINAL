@@ -1,33 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-BR">
+{% extends 'blog/base.html' %}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <title>Home</title>
-    </head>
-
-    <body>
-        {% for post in posts %}
+{% block content %}
+    {% for post in posts %}
         <div>
-            <h1>{{post.title}}</h1>
-            
-            <p> {{post.text|linebreaksbr }} </p> <!-- |linebreaksbr → \n to paragraph-->
-        {% endfor %}
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+                
+        <p> {{post.text|linebreaksbr }} </p> <!-- |linebreaksbr → \n to paragraph-->
         </div>
-    </body>
-
-    <footer>
-        <a href="http://127.0.0.1:8000/aula_um/">
-            Aula 1 LMW
-        </a>
-        <br>
-        <a href="http://127.0.0.1:8000/aula_dois/"> Ver Código da Aula 2!</a>
-    </footer>
-
-</html>
+    {% endfor %}
+{% endblock %}
