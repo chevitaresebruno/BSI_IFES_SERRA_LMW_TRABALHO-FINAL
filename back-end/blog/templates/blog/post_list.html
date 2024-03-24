@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+                
+        <p> {{post.text|linebreaksbr }} </p> <!-- |linebreaksbr → \n to paragraph-->
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

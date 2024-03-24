@@ -1,0 +1,12 @@
+h1, h2 {
+    color: #50e1fb;
+    font-family: 'Lobster';
+}
+
+body {
+    padding-left: 15px;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
